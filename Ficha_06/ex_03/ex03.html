@@ -8,6 +8,28 @@
     <script src="ex03.js"></script>
 </head>
 <body>
+    <form id="frmFilmes">
+        Título do Filme:
+        <input id="titulo" type="text" maxlength="50" required>
+        <br><br>
+        Ano de Lançamento:
+        <input id="ano" type="number" min="1900" max="2018" required>
+        <br><br>
+        Género:
+        <select id = "genero">
+            <option value="Terror">Terror</option>
+            <option value="Romance">Romance</option>
+            <option value="Animação">Animação</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Ação">Ação</option>
+        </select>
+        <br><br>
+        <input id= "btnSubmit" type= "submit" value = "Adicionar">        
+    </form>
+    
+    <br><br><br>   
+    <table id="tblFilmes" ></table>
     
 </body>
 </html>
