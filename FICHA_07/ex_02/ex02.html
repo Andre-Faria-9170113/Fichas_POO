@@ -8,18 +8,18 @@
     <script src="ex02.js"></script>
 </head>
 <body>
-    <form id="frmCorrida" action="">
+    <form id="frmCorrida" action="" autocomplete="on" >
             <label for="txtNome">Nome:</label>
-            <input type="text" name="" id="txtNome" maxlength="50" autofocus  required>
+            <input type="text" name="" id="txtNome" maxlength="50" autofocus value="André"  required>
             <br><br>
             <label for="txtMorada">Morada</label>
-            <input type="text" name="" id="txtMorada">
+            <input type="text" name="" id="txtMorada" placeholder="Ex: Rua de Salgueiros 965 1º, Canidelo, V. N. Gaia">
             <br><br>
             <label for="txtCodigoPostal_01">Código Postal:</label>
-            <input type="text" name="" id="txtCodigoPostal_01" minlength="4" maxlength="4" >-<input type="text" name="" id="txtCodigoPostal_02" minlength="3" maxlength="3" >
+            <input type="text" name="" id="txtCodigoPostal_01" minlength="4" maxlength="4" placeholder="xxxx" value="4400" >-<input type="text" name="" id="txtCodigoPostal_02" minlength="3" value="572" maxlength="3"placeholder="xxx" >
             <br><br>
             <label for="txtTelemovel">Nº de Telemóvel:</label>
-            <input type= "text" name="" id="txtTelemovel" minlength="9" maxlength="9" required>
+            <input type= "text" name="" id="txtTelemovel" minlength="9" maxlength="9" placeholder="Ex: 966666666" value="966666666" required>
             <br><br>
             <label for="txtNascimento">Data de Nascimento:</label>
             <input type="date" name="" id="txtNascimento">
@@ -38,16 +38,16 @@
             </select>
             <br><br>
             <label for="txtEmail">E-mail:</label>
-            <input type= "email" name="" id="txtEmail" required>
+            <input type= "email" name="" id="txtEmail" accesskey="e" placeholder="Ex: abc123@gmail.com" value="abc123@gmail.com" required>
             <br><br>
             <label for="txtUser">User:</label>
-            <input type= "text" name="" id="txtUser" required>
+            <input type= "text" name="" id="txtUser" autocomplete="off" value="abc" required>
             <br><br>
             <label for="txtPassword">Password:</label>
-            <input type= "password" name="" id="txtPassword" required>
+            <input type= "password" name="" id="txtPassword" autocomplete="off" value="123" required>
             <br><br>
             <label for="txtPasswordConfirm">Confirme a Password:</label>
-            <input type= "password" name="" id="txtPasswordConfirm" required>
+            <input type= "password" name="" id="txtPasswordConfirm" autocomplete="off" value="123" required>
             <br><br>
             <label for="txtCamisola">Tamanho de Camisola:</label>
             <select name="" id="txtCamisola">
@@ -58,7 +58,7 @@
             </select>
             <br><br>
             <label for="txtPagina">Página pessoal:</label>
-            <input type= "url" name="" id="txtPagina" >
+            <input type= "url" name="" id="txtPagina" placeholder="Ex: https://www.abc123.com" >
             <br><br>
             <label for="txtSapatilha">Nº de Sapatilha:</label>
             <input type= "number" name="" id="txtSapatilha" min=30 max=50 >
@@ -67,7 +67,9 @@
             <input type="checkbox" name="" id="">running <input type="checkbox" name="" id="">cycling <input type="checkbox" name="" id="">natação <input type="checkbox" name="" id="">futebol <input type="checkbox" name="" id="">vela <input type="checkbox" name="" id="">ténis <input type="checkbox" name="" id="">outros 
             <br><br>
             <label for="txtObservaçoes">Observações:</label> <br>
-            <textarea name="" id="txtObservaçoes" cols="30" rows="10" style="resize: none"></textarea>  
+            <textarea name="" id="txtObservaçoes" cols="30" rows="10" style="resize: none" placeholder="Problemas de saúde, condições especiais, etc."></textarea>  
+            <br><br><br>
+            <input type="submit" value="Registar">
 
 
     </form>
