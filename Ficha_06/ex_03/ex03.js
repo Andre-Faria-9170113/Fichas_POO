@@ -9,32 +9,32 @@ class Filme {
     }
 
     get titulo(){       // get/set pra titulo
-        return this.titulo
+        return this._titulo
     }
 
     set titulo(novoTitulo){
-        this.titulo = novoTitulo
+        this._titulo = novoTitulo
     }
 
     get ano(){       // get/set pra ano
-        return this.ano
+        return this._ano
     }
 
     set ano(novoAno){
-        this.ano = novoAno
+        this._ano = novoAno
     }
 
     get genero(){       // get/set pra genero
-        return this.genero
+        return this._genero
     }
 
     set genero(novoGenero){
-        this.genero = novoGenero
+        this._genero = novoGenero
     }
 
     static generateID() {
         let count = 0
-        for (i=0; i<filmes.length;i++){
+        for (let i=0; i<filmes.length;i++){
             if(filmes[i].id>count){
                 count = filmes[i].id
             }
@@ -58,27 +58,46 @@ function mainFunction(){
 
     //event listener pro botao de submeter
     frmFilmes.addEventListener("submit", function(event){
+       
+        event.preventDefault()
         let novoFilme = new Filme(titulo.value, ano.value, genero.value)
 
         filmes.push(novoFilme)
 
-        tabelaUpdate()
-
-        event.preventDefault()
+        tableUpdate()
+       
     })
 
 
-    function tabelaUpdate() {
+    
+
+
+
+    function tableUpdate(){
         let tblFilmes = document.getElementById("tblFilmes")
-        let str ="<thead><tr><th>TÍTULO</th><th>ANO</th><th>GÉNERO</th><th>ACÕES</th></tr></thead><tbody>"
-        for(i=0; i<filmes.length;i++){
-            str += "<tr>"        
-            str += "<td>" + filmes[i].titulo + "</td>"
-            str += "<td>" + filmes[i].ano + "</td>"
-            str += "<td>" + filmes[i].genero + "</td>"
-            str +="</tr>"
-        }
-        str += "<tbody>"
-        tblFilmes.innerHTML = str
+            let str ="<thead><tr><th>TÍTULO</th><th>ANO</th><th>GÉNERO</th><th>ACÕES</th></tr></thead><tbody>"
+            for(let i=0; i<filmes.length;i++){
+                str += "<tr>"        
+                str += "<td>" + filmes[i].titulo + "</td>"
+                str += "<td>" + filmes[i].ano + "</td>"
+                str += "<td>" + filmes[i].genero + "</td>"
+                str += "<td><a class='remove'><i class='fas fa-trash-alt'></i></a></td>"
+                str +="</tr>"
+            }
+            str += "<tbody>"
+            tblFilmes.innerHTML = str
+
+        let tdRemove = document.getElementsByClassName("remove")
+        for(let i=0; i<tdRemove.length;i++){
+            tdRemove[i].addEventListener("click", function(){
+            filmes.splice(i,1)
+            tableUpdate()
+        })
     }
+
+    }
+    
+
+
+    
 }

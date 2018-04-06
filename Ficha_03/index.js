@@ -9,14 +9,14 @@ let show = function (value) {
 function funcA() {
     let s = prompt("Indique um string para determinar o seu nº de carateres: ")
 
-    let count = 0
-    for (i = 0; i < s.length; i++) {
-        let s_split = s.split('')
-        if (s_split[i] != " ") {
-            count++
-        }
-    }
-    show("A --> " + count)
+    // let count = 0 ///////////////////////////////s SE N CONSIDERAR " " UM CARATER
+    // for (i = 0; i < s.length; i++) {
+    //     let s_split = s.split('')
+    //     if (s_split[i] != " ") {
+    //         count++
+    //     }
+    // }
+    show("A --> " + s.length)
 }
 
 //ALINEA B  ######################################################
@@ -71,13 +71,8 @@ function funcD() {
 
 function funcE() {
     let s = prompt("Indique um string para inverter: ").split('').reverse()
-    let s_reverse = ""
 
-    for (i = 0; i < s.length; i++) {
-        s_reverse += s[i]
-    }
-
-    show("E --> " + s_reverse)
+    show("E --> " + s)
 }
 
 //ALINEA F  ######################################################
@@ -90,7 +85,7 @@ function funcF() {
         show("F --> ERRO! Indique UM caratér.")
     }
     else {
-        show("F --> " + s.replace(c, ''))
+        show("F --> " + s.split(c).join(''))
     }
 
 }

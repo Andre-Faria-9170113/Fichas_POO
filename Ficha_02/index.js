@@ -120,13 +120,13 @@ function funcL(numeros) {
 
 //ALINEA M  #####################################################################
 function funcM(numeros) {
-    let novoArray =[]
+    
 
     for(i=0; i<numeros.length;i++){
-        novoArray.push(parseInt(numeros[i])+1)
+       numeros[i]=parseInt(numeros[i])+1
     }
 
-    show("M --> "+novoArray)
+    show("M --> "+numeros)
    }
    
 //ALINEA N  #####################################################################
