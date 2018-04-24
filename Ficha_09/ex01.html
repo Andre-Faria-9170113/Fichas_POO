@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <script src="ex01.js"></script>
+
+    <!-- tornar as imagens responsivas -->
+    <style>.carousel-inner img{
+        width: 100%;
+        height: 100%;}
+    </style>
+    
   </head>
   <body>
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
@@ -33,7 +40,7 @@
               <ul class="navbar-nav">
                   <!-- OPÇÃO LOGIN -->
                     <li id="optLogin" class="nav-item">
-                         <a class="nav-link" href="#">Login</a>
+                         <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
                     </li>
                     <!-- OPÇÃO REGISTO -->
                     <li id="optRegisto" class="nav-item">
@@ -124,6 +131,71 @@
             </div>
           </div>
       
+
+
+          <!-- MODAL PRA LOGIN -->
+          <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                        <form id="frmLogin">
+                            <!-- EMAIL     -->
+                                <div class="form-group">
+                                  <label for="inputLoginEmail">E-Mail</label>
+                                  <input type="email" class="form-control" id="inputLoginEmail" placeholder="Email" value="abc123@gmail.com" required>
+                                </div>
+                            <!-- PASSWORD     -->
+                                <div class="form-group">
+                                        <label for="inputLoginPassword">Password</label>
+                                        <input type="password" class="form-control" id="inputLoginPassword" minlength="5" placeholder="Password" value="abc123" required>
+                                </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-primary" >Registar</button>
+                </div>
+            </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECÇÃO ABOUT -->
+
+          <div class="jumbotron">
+            <h1 class="display-4">Bem-vindo à aplicação da DreamTrips!</h1>
+            <p class="lead">Aqui pode visualizar todas as viagens dos nossos membros. Pode-se também registar como utilizador e submeter as suas viagens.</p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </p>
+          </div>
+
+          <!-- SECÇÃO CATÁLOGO -->
+           
+          <div class="jumbotron">
+            <h1 class="display-4">Catálogo de Viagens</h1>
+            <p class="lead">Visualize o nosso catálogo de viagens completo .</p>
+
+            <div id="tripsCatalog" class="container">
+                <!-- <div class="row">
+                    <div class="col-sm-4">
+                            <div class="card" style="width: 18rem;">
+                                    <img class="card-img-top" src="images/imgMadrid.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Card title</h5>
+                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                      <a href="#" class="btn btn-primary">Visualizar Viagem.    </a>
+                                    </div>
+                                  </div>
+                    </div>
+                </div> -->
+            </div>
+         </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
