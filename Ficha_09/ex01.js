@@ -1,5 +1,6 @@
 let users = []
 let trips = []
+let userId=0
 
 class User{
     constructor(name, email, password){
@@ -53,59 +54,97 @@ class User{
     }
 }
 
-class Trip{             // INCOMPLETO !!! ////////////////////////////////////////////////////////
-    constructor(name, email, password){
-        this._id = User.getLastId()
+class Trip {
+    constructor(name, country, link, date, description, score, userId) {
+        this._id = Trip.getLastId() + 1
         this.name = name
-        this.email= email
-        this.password = password
+        this.country = country
+        this.link = link
+        this.date = date
+        this.description = description
+        this.score = score
+        this.userId = userId
     }
 
-      //Propriedade ID
-      get id(){
+    // Propriedade ID
+    get id() {
         return this._id
     }
-
-    //Propriedade Nome
-    get name(){
+   
+    // Propriedade NAME
+    get name() {
         return this._name
     }
-
-    set name(newName){
-        this._name=newName
+   
+    set name(newName) {
+        this._name = newName
     }
 
-    //Propriedade E-mail
-    get email(){
-        return this._email
+    // Propriedade COUNTRY
+    get country() {
+        return this._country
+    }
+   
+    set country(newCountry) {
+        this._country = newCountry
     }
 
-    set email(newEmail){
-        this._email=newEmail
+    // Propriedade LINK
+    get link() {
+        return this._link
+    }
+   
+    set link(newLink) {
+        this._link = newLink
     }
 
-    //Propriedade Password
-    get password(){
-        return this._password
+    // Propriedade DATE
+    get date() {
+        return this._date
+    }
+   
+    set date(newDate) {
+        this._date = newDate
     }
 
-    set password(newPassword){
-        this._password=newPassword
+    // Propriedade DESCRIPTION
+    get description() {
+        return this._description
+    }
+   
+    set description(newDescription) {
+        this._description = newDescription
     }
 
-    static getLastId(){
-        let count = 0
-        for (let i=0; i<users.length;i++){
-            if(users[i].id>count){
-                count = users[i].id
-            }
+    // Propriedade SCORE
+    get score() {
+        return this._score
+    }
+   
+    set score(newScore) {
+        this._score = newScore
+    }
+
+    // Propriedade USERID
+    get userId() {
+        return this._userId
+    }
+   
+    set userId(newUserId) {
+        this._userId = newUserId
+    }
+
+    static getLastId() {
+        let lastId = 0
+        if(trips.length != 0) {
+            lastId = trips[trips.length-1].id
         }
-        return count+1
+        console.log("IDE: " + lastId)
+        return lastId
+        }
 
-    }
+
 }
-
-
 
 window.onload = function(){
     mainFunc()
@@ -128,6 +167,8 @@ function mainFunc() {
     trips.push(newTrip01);trips.push(newTrip02);trips.push(newTrip03);trips.push(newTrip04)
 
     renderCatalog()
+    // renderAuthors() //FALTA DEFINIR/////////////
+    // renderCountries()//FALTA DEFINIR/////////////
 
     // Esconder opçoes de autenicação
     let optLogout = document.getElementById("optLogout")
@@ -215,7 +256,8 @@ function mainFunc() {
 
     //OPÇÃO DE LOGIN
     optLogin.addEventListener("click", function(){
-        //  1. obter valores das caixas de texto
+        frmLogin.addEventListener("submit",function(event){
+             //  1. obter valores das caixas de texto
         let inputLoginEmail = document.getElementById("inputLoginEmail")
         let inputLoginPassword = document.getElementById("inputLoginPassword")
 
@@ -251,13 +293,16 @@ function mainFunc() {
         else{
             alert("Utilizador não-existente/ password errada.")
             frmLogin.reset()
-            inputLoginName.focus()
+            inputLoginEmail.focus()
             
          }
 
+        })
+       
+
     })
-//Função q vai alimentar o meu catálogo
-function renderCatalog(){
+ //Função q vai alimentar o meu catálogo
+ function renderCatalog(){
     // 1. iterar sobre o array de trips
 
     // 2. para cada trip vou definir uma card e compô-la com os dados do objeto
@@ -285,6 +330,8 @@ function renderCatalog(){
 
            
     }
-}
+    let tripsCatalog = document.getElementById("tripsCatalog")
+    tripsCatalog.innerHTML = strHtmlCard
+ }
 
 }
