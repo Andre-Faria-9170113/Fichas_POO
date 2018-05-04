@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <title>Ficha 06 ex3</title>
+    <script src="ex03.js"></script>
+</head>
+<body>
+    <form id="frmFilmes">
+        Título do Filme:
+        <input id="titulo" type="text" maxlength="50" required>
+        <br><br>
+        Ano de Lançamento:
+        <input id="ano" type="number" min="1900" max="2018" required>
+        <br><br>
+        Género:
+        <select id = "genero">
+            <option value="Terror">Terror</option>
+            <option value="Romance">Romance</option>
+            <option value="Animação">Animação</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Ação">Ação</option>
+        </select>
+        <br><br>
+        <input id= "btnSubmit" type= "submit" value = "Adicionar">        
+    </form>
+    
+    <br><br><br>   
+    <table id="tblFilmes" ></table>
+    
+</body>
+</html>

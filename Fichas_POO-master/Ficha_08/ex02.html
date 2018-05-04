@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Ficha nº8 - Exercício nº2</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+     <!-- Font Awesome -->
+     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+
+    <!-- Custom js -->
+    <script src="ex02.js"></script>
+  </head>
+  <body>
+    <div class="container">
+       <div class="jumbotron">
+  <h1 class="display-4">Gestor de Jogos</h1>
+  <p class="lead">Gira a sua coleção de jogos, adicionando/ removendo jogos dinamicamente, e ainda filtrando os jogos que pretende visualizar por nome/género/plataforma.</p>
+  <hr class="my-4">
+  <form id="frmGames">
+      <div class="form-row">
+          <div class="form-group col-md-6">
+      <label for="txtName">Nome do Título</label>
+      <input id="txtName" class="form-control form-control-lg" type="text" autofocus required>
+      </div>
+      <div class="form-group col-md-1">
+      </div>
+
+      <div class="form-group col-md-3">
+          <label for="inputGenre">Género de Jogo</label>
+          <select id="inputGenre" class="form-control"  required>
+            <option value="">All</option>
+            <option value="Ação">Ação</option>
+            <option value="Aventura">Aventura</option>   
+            <option value="Estratégia">Estratégia</option>
+            <option value="RPG">RPG</option>
+            <option value="Desporto">Desporto</option>
+            <option value="Corrida">Corrida</option>
+            <option value="Multiplayer">Multiplayer</option>
+            <option value="Simulação">Simulação</option>
+            </select>
+      </div>
+      </div>
+
+      <div class="form-row">
+          Plataformas disponíveis
+      </div>
+
+      <div class="form-row">
+          <div class="form-group col-md-12">
+              <div class="form-check form-check-inline">
+                  <label class="form-check-label mr-3">
+                      <input class="form-check-input" type="checkbox" name="" id="" value="Steam"> Steam
+                  </label>
+                  <label class="form-check-label mr-3">
+                      <input class="form-check-input" type="checkbox" name="" id="" value="PS4"> PS4
+                  </label>
+                  <label class="form-check-label mr-3">
+                      <input class="form-check-input" type="checkbox" name="" id="" value="Xbox"> Xbox
+                  </label>
+                  <label class="form-check-label mr-3">
+                      <input class="form-check-input" type="checkbox" name="" id="" value="Mobile"> Mobile
+                  </label>
+                  <label class="form-check-label mr-3">
+                      <input class="form-check-input" type="checkbox" name="" id="" value="Wii"> Wii
+                  </label>
+              </div>
+
+          </div>
+
+      </div>
+      <div class="form-row">
+          <div class="form-group col-md-5">
+          <label for="urlCover">URL para a imagem de capa</label>
+          <input id="urlCover" class="form-control form-control-sm" type="url" value="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Tetris_Ultimate_cover_art.jpg/220px-Tetris_Ultimate_cover_art.jpg" placeholder="https://abc123.com" required>
+      </div>
+      </div>
+      <br>
+
+      <div class="form-row">
+        <div class="form-group col-md-3">
+            <input class="btn btn-primary btn-lg" type="submit" id="btnSubmit" value="Adicionar/Editar Jogo" style="background-color: rgb(0, 196, 0); border: none">
+         </div>
+        <div class="form-group col-md-2">
+                <input class="btn btn-primary btn-lg" id="btnReset" type="reset" value="Limpar" style="background-color: rgb(196, 0, 0); border: none">
+        </div>
+        <div class="form-group col-md-1"></div>
+        <div class="form-group col-md-1">
+                <input class="btn btn-primary" id="btnFiltrar" type="button" value="Filtrar" style="background-color: rgb(66, 66, 66); border: none">
+        </div>
+        <div class="form-group col-md-2">
+                <input class="btn btn-primary" id="btnRemover" type="button" value="Remover Todos" style="background-color: rgb(66, 66, 66); border: none" >
+        </div>
+      </div>
+      <hr class="my-4">
+      
+      
+
+      
+
+
+      
+      
+
+
+  </form>
+  <div class="table-responsive">
+        <table id="tblGames" class="table table-sm">
+        </table>
+      </div>
+</div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="gameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Game Details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <h5>Name</h5>
+                        <p id="modalGameName"></p>
+                    <hr>
+                    <h5>Genre</h5>
+                        <p id="modalGameGenre"></p>
+                    <hr>
+                    <h5>Platforms</h5>
+                        <p id="modalGamePlatforms"></p>
+                    <hr>
+                    <h5>Cover</h5>
+                        <img id="modalGameCover" class="img-thumbnail" src="" alt="">
+    
+                </div>
+               
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    
+                </div>
+              </div>
+            </div>
+          </div>
+    
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

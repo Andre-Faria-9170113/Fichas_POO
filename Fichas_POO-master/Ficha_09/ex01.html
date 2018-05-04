@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Ficha nº9</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="ex01.js"></script>
+
+    <!-- tornar as imagens responsivas -->
+    <style>.carousel-inner img{
+        width: 100%;
+        height: 100%;}
+    </style>
+    
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" style="opacity: 0.7">
+          <a class="navbar-brand" href="#" >D R E A M  T R I P S  </a>
+          <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+              aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+              <ul class="navbar-nav mr-auto">
+                  <!-- OPÇÃO SOBRE -->
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Sobre</a>
+                  </li>
+                  <!-- OPÇÃO CATÁLOGO -->
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Catálogo</a>
+                  </li>
+
+              </ul>
+              <ul class="navbar-nav">
+                  <!-- OPÇÃO LOGIN -->
+                    <li id="optLogin" class="nav-item">
+                         <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+                    </li>
+                    <!-- OPÇÃO REGISTO -->
+                    <li id="optRegisto" class="nav-item">
+                         <a class="nav-link" href="#" data-toggle="modal" data-target="#registoModal">Registo </a>
+                    </li>
+                    <!-- OPÇÃO LOGOUT -->
+                    <li id="optLogout" class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#registoModal">Logout </a>
+                   </li>    
+                    <!-- OPÇÃO Hi -->
+                    <li id="optHi" class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#registoModal">Olá,  </a>
+                   </li>                        
+            </ul>
+              
+          </div>
+      </nav>
+      <!-- HEADER(CAROUSSEL) -->
+      <div id="carouselId" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+              <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselId" data-slide-to="1"></li>
+              <li data-target="#carouselId" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                  <img src="images/img01.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                  <img src="images/img02.jpg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                  <img src="images/img03.jpg" alt="Third slide">
+              </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+          </a>
+      </div>
+
+
+
+      <!-- MODAL PARA REGISTO -->
+      <div class="modal fade" id="registoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Registo</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                        <form id="frmRegister">
+                            <!-- NOME -->
+                                <div class="form-group">
+                                  <label for="inputName" >Nome</label>
+                                  <input type="text" class="form-control" id="inputName" placeholder="Nome" value="abc123" required>
+                                </div>
+                            <!-- EMAIL     -->
+                                <div class="form-group">
+                                  <label for="exampleInputPassword1">E-Mail</label>
+                                  <input type="email" class="form-control" id="inputEmail" placeholder="Email" value="abc123@gmail.com" required>
+                                </div>
+                            <!-- PASSWORD     -->
+                                <div class="form-group">
+                                        <label for="inputPassword1">Password</label>
+                                        <input type="password" class="form-control" id="inputPassword1" minlength="5" placeholder="Password" value="abc123" required>
+                                </div>
+                            <!-- CONFIRMAR PASSWORD     -->
+                                <div class="form-group">
+                                    <label for="inputPassword2">Confirme a Password</label>
+                                    <input type="password" class="form-control" id="inputPassword2" minlength="5" placeholder="Confirme a Password" value="abc123" required>
+                                </div>    
+                             
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-primary" >Registar</button>
+                </div>
+            </form>
+              </div>
+            </div>
+          </div>
+      
+
+
+          <!-- MODAL PRA LOGIN -->
+          <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                        <form id="frmLogin">
+                            <!-- EMAIL     -->
+                                <div class="form-group">
+                                  <label for="inputLoginEmail">E-Mail</label>
+                                  <input type="email" class="form-control" id="inputLoginEmail" placeholder="Email" value="abc123@gmail.com" required>
+                                </div>
+                            <!-- PASSWORD     -->
+                                <div class="form-group">
+                                        <label for="inputLoginPassword">Password</label>
+                                        <input type="password" class="form-control" id="inputLoginPassword" minlength="5" placeholder="Password" value="abc123" required>
+                                </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-primary" >Efetuar Login</button>
+                </div>
+            </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECÇÃO ABOUT -->
+
+          <div class="jumbotron">
+            <h1 class="display-4">Bem-vindo à aplicação da DreamTrips!</h1>
+            <p class="lead">Aqui pode visualizar todas as viagens dos nossos membros. Pode-se também registar como utilizador e submeter as suas viagens.</p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </p>
+          </div>
+
+          <!-- SECÇÃO CATÁLOGO -->
+           
+          <div class="jumbotron">
+            <h1 class="display-4">Catálogo de Viagens</h1>
+            <p class="lead">Visualize o nosso catálogo de viagens completo .</p>
+
+            <div id="tripsCatalog" class="container">
+                
+            </div>
+         </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
