@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ficha 08- PortugalCastles</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+
+<body>
+    <div id="intro">
+        <h2>CASTELOS DE PORTUGAL</h2><br>
+        <table>
+            <tr>
+                <th>CASTELO</th>
+                <th>ANO CONSTRUÇÃO</th>
+                <TH>AÇÕES</TH>
+            </tr>
+            <tr v-for="castle in castleNameFilter">
+                <td>{{castle.name}}</td>
+                <TD>{{castle.creationDate}}</TD>
+                <td><button @click="viewCastle(castle.id)">Ver Foto</button>
+                    <button @click="editCastle(castle.id)">Alterar</button>
+                    <button @click="removeCastle(castle.id)">Eliminar</button></td>
+            </tr>
+
+        </table>
+
+        <!---VIEW CASTLE-->
+        <dialog id="dialogView">
+            <h2>{{castleName}}</h2>
+            <img v-bind:src="castlePhoto">
+            <button @click="closeDialogView" class="btn btn-primary">CLOSE</button>
+        </dialog>
+
+        <!---EDIT CASTLE-->
+        <dialog id="dialogEdit">
+            <h2>{{castleName}}</h2>
+            <form v-on:submit.prevent="changeCastle(form.editId)">
+                <label for="txtEditName">Nome Castelo:</label>
+                <input type="text" id="txtEditName" v-bind:value="form.name" v-model="form.name"><br>
+                <label for="txtEditLink">Link Foto:</label>
+                <input type="url" id="txtEditLink" v-bind:value="form.link" v-model="form.link"><br>
+                <input type="submit" value="SUBMIT">
+            </form>
+            <button @click="closeDialogEdit" class="btn btn-primary">CLOSE</button>
+        </dialog>
+        <!---ADD CASTLE-->
+        <dialog id="dialogAdd">
+            <h2>REGISTAR NOVO CASTELO</h2>
+            <form v-on:submit.prevent="addCastle">
+                <label for="txtEditName">Nome Castelo:</label>
+                <input required="true" type="text" id="txtEditName" v-bind:value="form.name" v-model="form.name"><br>
+                <label for="txtEditLink">Link Foto:</label>
+                <input required="true" type="url" id="txtEditLink" v-bind:value="form.link" v-model="form.link"><br>
+                <input type="submit" value="SUBMIT">
+            </form>
+            <button @click="closeDialogAdd" class="btn btn-primary">CLOSE</button>
+        </dialog>
+        <hr>
+        <label for="txtNameFilter">FILTRAR POR NOME:</label>
+        <input type="text" id="txtNameFilter" v-model="form.filterName"><br>
+        <button @click="sortByName">ORDENAR POR NOME</button>
+        <hr>
+        <button @click="openNewForm">ADICIONAR CASTELO</button>
+        <hr>
+        <!--EXERCISES-->
+        <h4>EXERCISES</h4>
+        <button @click="ex1">I</button>
+        <button @click="ex2">II</button>
+        <button @click="ex3">III</button>
+        <button @click="ex4">IV</button>
+        <button @click="ex5">V</button>
+        <button @click="ex6">VI</button>
+        <button @click="ex7">VII</button>
+        <button @click="ex8">VIII</button>
+        <HR></HR>
+        <h4>OTHER FEATURES</h4>
+        <!--OTHER FEATURES-->
+        <button @click="extra1">I</button>
+        <button @click="extra2">II</button>
+        <button @click="extra3">III</button>
+        <button @click="extra4">IV</button>
+    </div>
+    <script src="js/vue-instance.js"></script>
+</body>
+
+</html>

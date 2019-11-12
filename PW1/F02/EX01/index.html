@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>F02 EX01</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="intro">
+        <button v-on:click="number ++" id="btnAdd">+</button>
+        <button v-on:click="number --" id="btnSub">-</button>
+        <span>{{number}}</span>
+        <h2 hidden id="stringError">INVALID NUMBER</h2>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: "#intro",
+            data: {
+                number: localStorage.getItem("number")
+            },
+            created: function () {
+                console.log("Successfully created Vue instance.")
+                if (localStorage.getItem("number") == 0) {
+                    document.getElementById("btnSub").disabled = true;
+                }
+                if (!localStorage.getItem("number")) {
+                    this.number = 0;
+                    document.getElementById("btnSub").disabled = true;
+                }
+            },
+            mounted: function () { console.log("Vue instance successfully mounted on the DOM.") },
+            beforeUpdate: function () {
+                if (this.number == 0) {
+                    // document.getElementById("stringError").hidden = false;
+                    this.number = 0;
+                    document.getElementById("btnSub").disabled = true;
+                    // console.log("Number changed to " + this.number)
+                }
+                else {
+                    // document.getElementById("stringError").hidden = true;
+                    document.getElementById("btnSub").disabled = false;
+                    // console.log("Number changed to " + this.number)
+                }
+            },
+            updated: function () {
+                console.log("Number changed to " + this.number)
+                localStorage.setItem("number", this.number)
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

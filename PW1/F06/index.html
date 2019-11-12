@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ficha 06</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+
+<body>
+    <div id="intro">
+        <input v-model="filter" type="radio" name="filter" id="r1" value="Personal">Personal
+        <input v-model="filter" type="radio" name="filter" id="r2" value="Work-related">Work-related
+        <input v-model="filter" type="radio" name="filter" id="r3" value="All">All
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Task</th>
+                <th>Type</th>
+            </tr>
+            <tr v-for="(task, index) in filterTasks">
+                <td>{{index +1}}</td>
+                <td>{{task.name}}</td>
+                <td>{{task.topic}}</td>
+                <td><button @click="deleteTask(index)">x</button></td>
+            </tr>
+        </table>
+
+
+        <input v-model="inputTask" type="text">
+        <input v-model="inputTopic" type="radio" name="topic" id="r4" value="Personal">Personal
+        <input v-model="inputTopic" type="radio" name="topic" id="r5" value="Work-related">Work-related
+        <button @click="addTask"> Submit </button>
+    </div>
+    <script src="js/vue-instance.js"></script>
+</body>
+
+</html>

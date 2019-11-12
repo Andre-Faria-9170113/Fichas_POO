@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ficha 03</title>
+    <script src="js/vue.js"></script>
+</head>
+<div id="intro">
+    <h2>firstName: {{person.firstName}}<br> lastName: {{person.lastName}}<br> age: {{person.age}} <br> balance:
+        {{person.balance | formatBalance}}</h2>
+    <!-- <button v-on:click="dataPerson">Invoke Method</button> -->
+    <!-- <button>Invoke Computed</button> -->
+</div>
+
+<body>
+    <script>
+        var oldAge = 23;
+        const vm = new Vue({
+            el: "#intro",
+            data: {
+                person: { firstName: "Rui", lastName: "Silva", age: 23, balance: 4432 }
+            },
+            created: function () {
+                console.log("Event: Created")
+            },
+            mounted: function () {
+                console.log("Event: Mounted")
+            },
+            updated: function () {
+                console.log("Event: Updated")
+                //this.dataPersonComputed;
+                //vm.dataPerson();
+            },
+            methods: {
+                dataPerson: function () {
+                    console.log("NAME: " + this.person.firstName + " and AGE: " + this.person.age)
+                }
+            },
+            computed: {
+                dataPersonComputed: function () {
+                    console.log("COMPUTED--> NAME: " + this.person.firstName + " and AGE: " + this.person.age)
+                },
+                fullNameComputed: function () {
+                    console.log("COMPUTED--> FULL NAME: " + this.person.firstName + " " + this.person.lastName)
+                }
+            },
+            watch: {
+                'person.age': {
+                    handler: function (newValue, oldValue) {
+                        console.log("Age changed from " + oldValue + " to " + newValue)
+                    },
+                    deep: true
+                }
+            },
+            filters: {
+                formatBalance: function (value) {
+                    let result = (value/100).toFixed(2) +" €"
+                    return result
+                }
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

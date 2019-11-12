@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ficha 05</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="intro">
+        <button id="btnMsg" v-on:click="alertMsg(msg,  $event)">Message</button>
+        <div v-on:click="showMessage('div')">
+            <button v-on:click="showMessage('button')">CLICA-ME</button>
+            <button v-on:click.stop="showMessage('button')">stop bubbling</button>
+            <button v-on:click.stop.once="showMessage('button')">only works once</button>
+            <button v-on:keyup.tab="showMessage('button')">pressed with TAB</button>
+        </div>
+    </div>
+
+
+    <script src="js/vue-instance.js"></script>
+</body>
+
+</html>

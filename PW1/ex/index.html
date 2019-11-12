@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Application Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+
+<body>
+    <div id="intro">
+        <form action="">
+            <label v-model="name" for="inputName">Nome</label>
+            <input v-model="name" type="text" id="inputName"><br><br>
+            <label for="inputAge">Idade</label>
+            <input v-model="age" min="16" type="number" id="inputAge"><br><br>
+            <label for="inputGender">Género</label>
+            <div id="inputGender">
+                <input v-model="gender" checked="checked" type="radio" name="inputGender" value="Feminino">Feminino<br>
+                <input v-model="gender" type="radio" name="inputGender" value="Masculino">Masculino
+            </div><br><br>
+            <label for="inputDegree">Licenciatura</label><br>
+            <select v-model="degree" id="inputDegree">
+                <option selected="selected" value="Sem Licenciatura">Sem Licenciatura</option><br>
+                <option value="Informática">Informática</option><br>
+                <option value="Redes">Redes</option><br>
+                <option value="Web">Web</option><br>
+            </select><br><br>
+            <label for="inputLanguages">Linguagens de Programação dominadas</label><br>
+            <input v-model="languages" type="checkbox" id="checkC" value="C"> C 
+            <input v-model="languages" type="checkbox" id="checkJava" value="Java"> Java
+            <input v-model="languages" type="checkbox" id="checkPython" value="Python"> Python <br>
+            <input v-model="languages" type="checkbox" id="checkC#" value="C#"> C# 
+            <input v-model="languages" type="checkbox" id="checkJavaScript" value="JavaScript"> JavaScript
+            <input v-model="languages" type="checkbox" id="checkKotlin" value="Kotlin"> Kotlin <br><br>
+            <label for="inputMotivation">Motivação</label><br>
+            <textarea v-model="motivation" id="inputMotivation" cols="30" rows="10"></textarea><br><br>
+            <input @click="generateMsg" type="button" id="btnSubmit" value="Submeter">
+        </form>
+        <dialog id="dialogReport"></dialog>
+    </div>
+    <script src="js/vue-instance.js"></script>
+</body>
+
+</html>

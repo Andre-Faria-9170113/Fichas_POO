@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MyTravels</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+
+</head>
+
+<body>
+    <h1>MyTravels</h1>
+    <div id="myApp">
+        <form v-on:submit.prevent="addTravel">
+            <!--CONTINENT-->
+            <label for="sltContinent">CONTINENTE:</label>
+            <select id="sltContinent" v-model="continent">
+                <option value="all">TODOS</option>
+                <option value="africa">ÁFRICA</option>
+                <option value="america">AMÉRICA</option>
+                <option value="asia">ÁSIA</option>
+                <option value="europe">EUROPA</option>
+                <option value="oceania">OCEÂNIA</option>
+            </select>
+
+            <!--COUNTRY-->
+            <label for="txtCountry">PAÍS:</label>
+            <input id="txtCountry" type="text" v-model="country"><br><br>
+
+            <!--CITIES-->
+            <label for="txtCities">CIDADES:</label>
+            <textarea id="txtCities" cols="30" rows="3" v-model="cities"
+                placeholder="por favor separe as cidades com virgulas"></textarea><br><br>
+
+            <!--DESCRIPTION-->
+            <label for="txtDesc">DESCRIÇÃO:</label>
+            <textarea id="txtDesc" cols="30" rows="3" v-model="description"></textarea><br><br>
+
+            <!--START DATE-->
+            <label for="dateStartDate">DATA DE PARTIDA:</label>
+            <input type="date" id="dateStartDate" v-model="startDate"><br><br>
+
+            <!--RETURN DATE-->
+            <label for="dateReturnDate">DATA DE RETORNO:</label>
+            <input type="date" id="dateReturnDate" v-model="returnDate"><br><br>
+
+            <!--TRIP-TYPE-->
+            <label for="">TIPO DE VIAGEM:</label>
+            <input type="radio" id="radHolidays" value="holidays" v-model="type">
+            <label for="radHolidays">FÉRIAS</label>
+            <input type="radio" id="radBusiness" value="business" v-model="type">
+            <label for="radBusiness">NEGÓCIO</label><br><br>
+
+            <!--LINK-->
+            <label for="urlPhoto">LINK FOTO</label>
+            <input type="url" id="urlPhoto" placeholder="abc123.com"><br><br>
+
+            <!--SUBMIT-->
+            <input type="submit" value="Criar Viagem">
+            <!--SEARCH-->
+            <button>ENCONTRAR VIAGEM</button>
+        </form>
+        <br>
+
+        <span v-if="this.travels.length===0">SEM VIAGENS REGISTADAS</span>
+        <div v-else>
+            <table>
+                <hr>
+                <!--FILTERS-->
+                <!--CONTINENT-->
+                <label for="txtFilterContinent">CONTINENTE:</label>
+                <input type="text" id="txtFilterContinent" v-model="filterContinent">
+                <!--TYPE-->
+                <label>TIPO:</label>
+                <input type="radio" id="radFilterTypeAll" value="all" v-model="filterType">
+                <label for="radFilterTypeAll">TODAS</label>
+                <input type="radio" id="radFilterTypeHoliday" value="holidays" v-model="filterType">
+                <label for="radFilterTypeHoliday">FÉRIAS</label>
+                <input type="radio" id="radFilterTypeBusiness" value="business" v-model="filterType">
+                <label for="radFilterTypeBusiness">NEGÓCIO</label><br> 
+                <!--STARTDATE-->
+                <label for="dateFilterStart">DATA DE PARTIDA:</label>
+                <input type="date" id="dateFilterStart" v-model="filterStartDate">
+                <!--RETURNDATE-->
+                <label for="dateFilterReturn">DATA DE RETORNO:</label>
+                <input type="date" id="dateFilterReturn" v-model="filterReturnDate">
+                <hr>
+                <!--SORTS-->
+                <span>LISTA DE VIAGENS</span><br>
+                <button @click="sortByCountry">ORDENAR POR PAÍS</button>
+                <button @click="sortByDate">ORDENAR POR DATA</button>
+                <!--TABLE-->
+                <tr>
+                    <th>#</th>
+                    <th>CONTINENTE</th>
+                    <th>PAÍS</th>
+                    <th>TIPO</th>
+                    <th>AÇÕES</th>
+                </tr>
+                <tr v-for="travel in filteredTravels">
+                    <td>{{travel.id}}</td>
+                    <td>{{travel.continent}}</td>
+                    <td>{{travel.country}}</td>
+                    <td>{{travel.type}}</td>
+                    <td>
+                        <button @click="editTravel(travel.id)">EDITAR</button>
+                        <button @click="removeTravel(travel.id)">X</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="js/vue-instance.js"></script>
+</body>
+
+</html>

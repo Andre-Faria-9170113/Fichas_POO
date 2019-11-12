@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ficha04 EX03</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="intro">
+        <ul>
+            <li v-for="team in listFilterTeams">Name: {{team.name}} AND year: {{team.year}}</li>
+        </ul>
+        <table style="border: 1px solid black;  border-collapse: collapse;">
+            <tr><th style="border: 1px solid black">#</th><th style="border: 1px solid black">NAME</th><th style="border: 1px solid black">YEAR</th></tr>
+            <tr v-for="(team, index) in listFilterTeams"><td style="border: 1px solid black">{{index+1}}</td><td style="border: 1px solid black">{{team.name}}</td><td style="border: 1px solid black">{{team.year}}</td></tr>
+        </table>
+        <button v-on:click="addTeam('braga', 1923, 'Minho')">Add Braga</button>
+        <button v-on:click="filterTeams('Lisboa')">Show only from Lisboa</button>
+    </div>
+    <script src="vue-instance.js"></script>
+</body>
+
+</html>
